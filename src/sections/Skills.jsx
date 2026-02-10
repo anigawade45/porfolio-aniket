@@ -160,7 +160,7 @@ const Skills = () => {
     const { theme } = useTheme();
 
     return (
-        <section id="skills" className="py-24 lg:py-40 relative overflow-hidden">
+        <section id="skills" className="pt-12 lg:pt-20 pb-24 lg:pb-40 relative overflow-hidden">
             {/* Ambient blending glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/[0.03] blur-[150px] rounded-full pointer-events-none" />
 

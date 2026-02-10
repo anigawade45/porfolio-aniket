@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BubbleMenu from './BubbleMenu';
 import { useTheme } from '../lib/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
+import ResumePDF from '../assets/Aniket_Resume.pdf';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -79,6 +80,7 @@ const Navbar = () => {
             {/* Desktop Navbar */}
             <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-in-out hidden md:block ${scrolled ? 'bg-bg-primary/80 backdrop-blur-xl border-b border-border-divider h-16' : 'bg-transparent h-[72px]'
                 }`}>
+
                 <div className="max-w-[1400px] w-full mx-auto px-4 flex justify-between items-center h-full">
                     <div className="logo">
                         <Logo />
@@ -99,12 +101,17 @@ const Navbar = () => {
                         {/* Theme Toggle Button */}
                         <button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-xl bg-bg-secondary border border-border-divider text-text-primary hover:border-blue-500/50 transition-all active:scale-95 group"
+                            className="p-2.5 rounded-full bg-bg-secondary border border-border-divider text-text-primary hover:border-blue-500/50 transition-all active:scale-90 group"
                         >
                             {theme === 'dark' ? <Sun size={18} className="group-hover:rotate-12 transition-transform" /> : <Moon size={18} className="group-hover:-rotate-12 transition-transform" />}
                         </button>
 
-                        <a href="#resume" className="bg-blue-500 text-white px-6 py-2 rounded-xl font-bold text-[13px] transition-all duration-300 hover:scale-105 hover:bg-blue-400 shadow-[0_4px_12px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_16px_rgba(59,130,246,0.4)]">
+                        <a
+                            href={ResumePDF}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#8b5cf6] text-white px-8 py-3 rounded-full font-bold text-[13px] transition-all duration-300 hover:scale-110 hover:bg-[#a78bfa] shadow-[0_4px_12px_rgba(139,92,246,0.3)] hover:shadow-[0_8px_20px_rgba(139,92,246,0.4)] active:scale-95"
+                        >
                             Resume
                         </a>
                     </div>

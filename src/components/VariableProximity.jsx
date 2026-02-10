@@ -52,6 +52,7 @@ const VariableProximity = forwardRef((props, ref) => {
     radius = 50,
     falloff = 'linear',
     className = '',
+    highlightWords = [],
     onClick,
     style,
     ...restProps
@@ -153,28 +154,34 @@ const VariableProximity = forwardRef((props, ref) => {
       }}
       className={className}
       {...restProps}>
-      {words.map((word, wordIndex) => (
-        <span key={wordIndex} className="inline-block whitespace-nowrap">
-          {word.split('').map(letter => {
-            const currentLetterIndex = letterIndex++;
-            return (
-              <motion.span
-                key={currentLetterIndex}
-                ref={el => {
-                  letterRefs.current[currentLetterIndex] = el;
-                }}
-                style={{
-                  display: 'inline-block',
-                  fontVariationSettings: interpolatedSettingsRef.current[currentLetterIndex]
-                }}
-                aria-hidden="true">
-                {letter}
-              </motion.span>
-            );
-          })}
-          {wordIndex < words.length - 1 && <span className="inline-block">&nbsp;</span>}
-        </span>
-      ))}
+      {words.map((word, wordIndex) => {
+        const isHighlighted = highlightWords.some(hw =>
+          word.toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "") === hw.toLowerCase()
+        );
+
+        return (
+          <span key={wordIndex} className={`inline-block whitespace-nowrap ${isHighlighted ? 'text-blue-600 font-extrabold lg:font-black' : ''}`}>
+            {word.split('').map(letter => {
+              const currentLetterIndex = letterIndex++;
+              return (
+                <motion.span
+                  key={currentLetterIndex}
+                  ref={el => {
+                    letterRefs.current[currentLetterIndex] = el;
+                  }}
+                  style={{
+                    display: 'inline-block',
+                    fontVariationSettings: interpolatedSettingsRef.current[currentLetterIndex]
+                  }}
+                  aria-hidden="true">
+                  {letter}
+                </motion.span>
+              );
+            })}
+            {wordIndex < words.length - 1 && <span className="inline-block">&nbsp;</span>}
+          </span>
+        );
+      })}
       <span className="sr-only">{label}</span>
     </span>
   );

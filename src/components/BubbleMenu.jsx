@@ -190,9 +190,9 @@ export default function BubbleMenu({
             overflow: visible;
           }
           .bubble-menu-items .pill-link {
-            font-size: clamp(1.2rem, 3vw, 4rem);
-            padding: clamp(1rem, 2vw, 2rem) 0;
-            min-height: 80px !important;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            padding: clamp(0.5rem, 1.5vw, 1rem) 0;
+            min-height: 48px !important;
           }
           .bubble-menu-items .pill-link:hover,
           .bubble-menu-items .pill-link:active {
@@ -340,12 +340,12 @@ export default function BubbleMenu({
                     background: 'var(--pill-bg)',
                     color: 'var(--pill-color)',
                     minHeight: 'var(--pill-min-h, 160px)',
-                    padding: 'clamp(1.5rem, 3vw, 8rem) 0',
-                    fontSize: 'clamp(1.5rem, 4vw, 4rem)',
-                    fontWeight: 400,
+                    padding: 'clamp(0.75rem, 2vw, 4rem) 0',
+                    fontSize: 'clamp(1rem, 3vw, 2.5rem)',
+                    fontWeight: 800,
                     lineHeight: 0,
                     willChange: 'transform',
-                    height: 10
+                    height: 8
                   }}
                   ref={el => {
                     if (el) bubblesRef.current[idx] = el;

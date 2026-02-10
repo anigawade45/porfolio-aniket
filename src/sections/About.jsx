@@ -2,12 +2,13 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { User, MapPin, Briefcase, GraduationCap, Download, CheckCircle2 } from 'lucide-react';
 import { useTheme } from '../lib/ThemeContext';
+import ResumePDF from '../assets/Aniket_Resume.pdf';
 
 const About = () => {
     const { theme } = useTheme();
 
     return (
-        <section id="about" className="py-24 md:py-40 relative overflow-hidden">
+        <section id="about" className="pt-24 md:pt-40 pb-12 md:pb-20 relative overflow-hidden">
             {/* Subtle background glow */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -32,7 +33,7 @@ const About = () => {
 
                             <div className="space-y-6 text-text-secondary text-lg leading-relaxed max-w-2xl transition-colors">
                                 <p>
-                                    I’m a <span className="text-text-primary font-bold border-b border-text-primary/30 pb-0.5 transition-colors">full-stack developer</span> specializing in <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">React</span> and the <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">MERN stack</span>. I enjoy building scalable web applications with clean interfaces and efficient backend systems.
+                                    I’m an <span className="text-text-primary font-bold border-b border-text-primary/30 pb-0.5 transition-colors">SDE</span> specializing in <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">React</span> and the <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">MERN stack</span>. I enjoy building scalable web applications with clean interfaces and efficient backend systems.
                                 </p>
                                 <p>
                                     I focus on writing <span className="text-text-primary font-bold transition-colors">maintainable code</span>, designing intuitive user flows, and building features that solve real problems. I value performance, accessibility, and clean architecture as the foundation of any professional product.
@@ -57,14 +58,16 @@ const About = () => {
                                 </div>
 
                                 <div className="pt-8">
-                                    <motion.button
-                                        whileHover={{ scale: 1.05 }}
+                                    <motion.a
+                                        href={ResumePDF}
+                                        download="Aniket_Gawade_Resume.pdf"
+                                        whileHover={{ scale: 1.1, y: -5 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="flex items-center gap-3 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg shadow-blue-600/20"
+                                        className="flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-[#10b981] hover:bg-[#34d399] text-white font-black rounded-full transition-all duration-300 shadow-xl shadow-[#10b981]/20 w-fit text-sm md:text-base"
                                     >
                                         <Download size={20} />
                                         <span>Download Resume</span>
-                                    </motion.button>
+                                    </motion.a>
                                 </div>
                             </div>
                         </motion.div>
@@ -90,9 +93,9 @@ const About = () => {
                                 <div className="space-y-8">
                                     {[
                                         { icon: <User className="text-blue-500 dark:text-blue-400" />, label: "Name", value: "Aniket Gawade" },
-                                        { icon: <Briefcase className="text-blue-500 dark:text-blue-400" />, label: "Role", value: "React & MERN Developer" },
-                                        { icon: <MapPin className="text-blue-500 dark:text-blue-400" />, label: "Location", value: "India 🇮🇳" },
-                                        { icon: <GraduationCap className="text-blue-500 dark:text-blue-400" />, label: "Experience", value: "Fresher / Entry-Level" },
+                                        { icon: <Briefcase className="text-blue-500 dark:text-blue-400" />, label: "Role", value: "SDE (Software Development Engineer)" },
+                                        { icon: <MapPin className="text-blue-500 dark:text-blue-400" />, label: "Location", value: "Kolhapur, MH, India 🇮🇳" },
+                                        { icon: <GraduationCap className="text-blue-500 dark:text-blue-400" />, label: "Experience", value: "1 Year Experience" },
                                     ].map((fact, i) => (
                                         <div key={i} className="flex items-start gap-5">
                                             <div className={`p-3 rounded-2xl transition-all duration-500 border ${theme === 'dark' ? 'bg-bg-secondary border-border-divider group-hover:bg-blue-500/10' : 'bg-slate-50 border-slate-100 group-hover:bg-blue-50 shadow-sm'}`}>
