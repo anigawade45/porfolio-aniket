@@ -19,10 +19,20 @@ import {
     Atom,
     Box as BoxIcon,
     PieChart,
-    Layers
+    Layers,
+    Sparkles,
+    Brain,
+    CreditCard,
+    ClipboardCheck
 } from 'lucide-react';
 import { useTheme } from '../lib/ThemeContext';
 import CircularGallery from '../components/CircularGallery';
+
+// Import local project images
+import project1 from '../assets/Project1.png';
+import project2 from '../assets/Project2.png';
+import project3 from '../assets/Project3.png';
+import project4 from '../assets/Project4.png';
 
 const Fade = ({ children, in: open }) => {
     return (
@@ -50,64 +60,68 @@ const Fade = ({ children, in: open }) => {
 
 const projects = [
     {
-        title: "Full-Stack Auth System",
-        text: "Auth System",
-        description: "A comprehensive authentication and authorization system using JWT, refresh tokens, and role-based access control. Features include secure password hashing, session management, and protected API routes.",
-        image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1200",
+        title: "AI Career Coach",
+        text: "AI Coach",
+        description: "An intelligent platform providing industry insights, career coaching, and professional guidance. Built with Gemini API for smart analysis and Clerk for secure, modern authentication.",
+        image: project1,
+        tech: [
+            { name: "Next.js", icon: <Zap size={14} />, color: "#000000" },
+            { name: "Express", icon: <Server size={14} />, color: "#828282" },
+            { name: "Gemini AI", icon: <Sparkles size={14} />, color: "#1A73E8" },
+            { name: "Clerk", icon: <ShieldCheck size={14} />, color: "#6C47FF" },
+            { name: "Neon (PgSQL)", icon: <Database size={14} />, color: "#00E599" },
+            { name: "Tailwind", icon: <Wind size={14} />, color: "#06B6D4" },
+            { name: "shadcn/ui", icon: <Layout size={14} />, color: "#000000" }
+        ],
+        github: "https://github.com/anigawade45",
+        live: "https://sensai-orcin.vercel.app/"
+    },
+    {
+        title: "LMS Platform",
+        text: "LMS",
+        description: "A comprehensive Learning Management System featuring course management, student progress tracking, and secure video streaming. Integrates Stripe for course purchases and Clerk for unified authentication.",
+        image: project2,
         tech: [
             { name: "MongoDB", icon: <Database size={14} />, color: "#4DB33D" },
             { name: "Express", icon: <Server size={14} />, color: "#828282" },
             { name: "React", icon: <Atom size={14} />, color: "#61DAFB" },
             { name: "Node.js", icon: <Terminal size={14} />, color: "#339933" },
+            { name: "Stripe", icon: <CreditCard size={14} />, color: "#635BFF" },
+            { name: "Clerk", icon: <ShieldCheck size={14} />, color: "#6C47FF" }
+        ],
+        github: "https://github.com/anigawade45",
+        live: "https://lms-frontend-beta-seven.vercel.app/"
+    },
+    {
+        title: "Audit Management System",
+        text: "Audit Admin",
+        description: "A professional-grade Accounting and Audit Management System. Featuring complex financial report generation, Marathi language support, and a dual-mode Electron desktop application for offline data entry.",
+        image: project3,
+        tech: [
+            { name: "MongoDB", icon: <Database size={14} />, color: "#4DB33D" },
+            { name: "Express", icon: <Server size={14} />, color: "#828282" },
+            { name: "React", icon: <Atom size={14} />, color: "#61DAFB" },
+            { name: "Vite", icon: <Zap size={14} />, color: "#646CFF" },
+            { name: "Jest", icon: <Activity size={14} />, color: "#C21325" },
             { name: "JWT", icon: <ShieldCheck size={14} />, color: "#FB015B" }
         ],
         github: "https://github.com/anigawade45",
-        live: "#"
+        live: "https://audit-frontend-zeta.vercel.app"
     },
     {
-        title: "Admin Analytics",
-        text: "Analytics",
-        description: "An advanced administrative dashboard for real-time data visualization. Built with high-performance charts, complex filtering systems, and optimized state management for large datasets.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-        tech: [
-            { name: "React", icon: <Atom size={14} />, color: "#61DAFB" },
-            { name: "MUI", icon: <BoxIcon size={14} />, color: "#007FFF" },
-            { name: "Chart.js", icon: <PieChart size={14} />, color: "#FF6384" },
-            { name: "Redux", icon: <Layers size={14} />, color: "#764ABC" },
-            { name: "Vite", icon: <Zap size={14} />, color: "#646CFF" }
-        ],
-        github: "https://github.com/anigawade45",
-        live: "#"
-    },
-    {
-        title: "Gig Marketplace",
-        text: "Marketplace",
-        description: "A scalable freelance marketplace platform connecting clients with service providers. Features real-time job tracking, messaging via Socket.io, and a secure payment integration structure.",
-        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=1200",
-        tech: [
-            { name: "Socket.io", icon: <Cpu size={14} />, color: "#010101" },
-            { name: "PostgreSQL", icon: <Database size={14} />, color: "#4169E1" },
-            { name: "React", icon: <Atom size={14} />, color: "#61DAFB" },
-            { name: "Node", icon: <Terminal size={14} />, color: "#339933" },
-            { name: "Tailwind", icon: <Wind size={14} />, color: "#06B6D4" }
-        ],
-        github: "https://github.com/anigawade45",
-        live: "#"
-    },
-    {
-        title: "Modern UI Portfolio",
+        title: "Immersive 3D Portfolio",
         text: "Portfolio",
-        description: "A high-performance personal portfolio focused on immersive user experiences. Utilizing advanced GSAP animations, WebGL-based image transitions, and premium responsive design patterns.",
-        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200",
+        description: "A high-end personal portfolio featuring 3D circular galleries, pixel transitions, and proximity-based animations. Engineered for maximum visual impact with smooth scrolling and premium micro-interactions.",
+        image: project4,
         tech: [
+            { name: "React", icon: <Atom size={14} />, color: "#61DAFB" },
             { name: "GSAP", icon: <Activity size={14} />, color: "#88CE02" },
-            { name: "Vite", icon: <Zap size={14} />, color: "#646CFF" },
-            { name: "Framer", icon: <Move size={14} />, color: "#0055FF" },
-            { name: "WebGL", icon: <Globe size={14} />, color: "#990000" },
-            { name: "Lucide", icon: <Layout size={14} />, color: "#F59E0B" }
+            { name: "Tailwind", icon: <Wind size={14} />, color: "#38B2AC" },
+            { name: "OGL/WebGL", icon: <Globe size={14} />, color: "#FF4500" },
+            { name: "MUI", icon: <BoxIcon size={14} />, color: "#007FFF" }
         ],
         github: "https://github.com/anigawade45",
-        live: "#"
+        live: "https://porfolio-aniket-eta.vercel.app/"
     }
 ];
 
@@ -278,46 +292,67 @@ const Projects = () => {
                                         variant="contained"
                                         fullWidth
                                         sx={{
-                                            bgcolor: '#3B82F6',
-                                            borderRadius: '999px',
+                                            position: 'relative',
+                                            bgcolor: 'transparent',
+                                            backgroundImage: 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
+                                            borderRadius: '20px',
                                             fontWeight: 900,
-                                            height: { xs: '48px', md: '64px' },
-                                            fontSize: { xs: '0.8rem', md: '0.95rem' },
+                                            height: { xs: '56px', md: '72px' },
+                                            fontSize: { xs: '0.85rem', md: '1rem' },
                                             textTransform: 'none',
-                                            letterSpacing: '0.01em',
-                                            boxShadow: '0 10px 25px rgba(59, 130, 246, 0.25)',
-                                            '&:hover': {
-                                                bgcolor: '#2563EB',
-                                                transform: 'scale(1.05) translateY(-3px)',
-                                                boxShadow: '0 15px 35px rgba(59, 130, 246, 0.35)'
+                                            letterSpacing: '0.05em',
+                                            overflow: 'hidden',
+                                            boxShadow: theme === 'dark'
+                                                ? '0 10px 20px -5px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)'
+                                                : '0 10px 20px -5px rgba(59, 130, 246, 0.3)',
+                                            '&::before': {
+                                                content: '""',
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: '-100%',
+                                                width: '100%',
+                                                height: '100%',
+                                                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+                                                transition: '0.5s',
                                             },
-                                            transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                                            '&:hover': {
+                                                backgroundImage: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                                                transform: 'translateY(-3px) scale(1.02)',
+                                                boxShadow: '0 20px 40px -10px rgba(37, 99, 235, 0.5)',
+                                                '&::before': {
+                                                    left: '100%',
+                                                }
+                                            },
+                                            transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)'
                                         }}
-                                        startIcon={<Globe size={18} />}
+                                        startIcon={<Globe size={20} className="mr-1" />}
                                     >
-                                        Visit Live Project
+                                        Launch Experience
                                     </Button>
                                     <IconButton
                                         component="a"
                                         href={selectedProject?.github}
                                         target="_blank"
                                         sx={{
-                                            borderRadius: '999px',
-                                            width: { xs: '48px', md: '64px' },
-                                            height: { xs: '48px', md: '64px' },
+                                            borderRadius: '20px',
+                                            width: { xs: '56px', md: '72px' },
+                                            height: { xs: '56px', md: '72px' },
                                             border: '1px solid',
                                             borderColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+                                            bgcolor: theme === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+                                            backdropFilter: 'blur(10px)',
                                             color: 'var(--text-primary)',
                                             '&:hover': {
                                                 borderColor: '#8b5cf6',
                                                 color: '#8b5cf6',
-                                                transform: 'scale(1.1) rotate(5deg)',
-                                                bgcolor: 'rgba(139, 92, 246, 0.05)'
+                                                transform: 'translateY(-3px) rotate(8deg) scale(1.1)',
+                                                bgcolor: 'rgba(139, 92, 246, 0.08)',
+                                                boxShadow: '0 15px 30px -10px rgba(139, 92, 246, 0.3)'
                                             },
-                                            transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                                            transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)'
                                         }}
                                     >
-                                        <Github size={24} />
+                                        <Github size={26} />
                                     </IconButton>
                                 </div>
                             </div>
