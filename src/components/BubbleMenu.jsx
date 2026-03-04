@@ -211,8 +211,7 @@ export default function BubbleMenu({
             'bubble logo-bubble',
             'inline-flex items-center justify-center',
             'rounded-full',
-            'bg-white',
-            'shadow-[0_4px_16px_rgba(0,0,0,0.12)]',
+            'skeuo-card',
             'pointer-events-auto',
             'h-12 md:h-14',
             'px-4 md:px-8',
@@ -221,7 +220,6 @@ export default function BubbleMenu({
           ].join(' ')}
           aria-label="Logo"
           style={{
-            background: menuBg,
             minHeight: '48px',
             borderRadius: '9999px'
           }}>
@@ -246,11 +244,9 @@ export default function BubbleMenu({
           type="button"
           className={[
             'bubble toggle-bubble menu-btn',
-            isMenuOpen ? 'open' : '',
+            isMenuOpen ? 'open skeuo-pressed' : 'skeuo-btn',
             'inline-flex flex-col items-center justify-center',
             'rounded-full',
-            'bg-white',
-            'shadow-[0_4px_16px_rgba(0,0,0,0.12)]',
             'pointer-events-auto',
             'w-12 h-12 md:w-14 md:h-14',
             'border-0 cursor-pointer p-0',
@@ -258,8 +254,7 @@ export default function BubbleMenu({
           ].join(' ')}
           onClick={handleToggle}
           aria-label={menuAriaLabel}
-          aria-pressed={isMenuOpen}
-          style={{ background: menuBg }}>
+          aria-pressed={isMenuOpen}>
           <span
             className="menu-line block mx-auto rounded-[2px]"
             style={{
@@ -322,12 +317,11 @@ export default function BubbleMenu({
                     'w-full',
                     'rounded-[999px]',
                     'no-underline',
-                    'bg-white',
+                    'skeuo-btn',
                     'text-inherit',
-                    'shadow-[0_4px_14px_rgba(0,0,0,0.10)]',
                     'flex items-center justify-center',
                     'relative',
-                    'transition-[background,color] duration-300 ease-in-out',
+                    'transition-all duration-300 ease-in-out',
                     'box-border',
                     'whitespace-nowrap overflow-hidden'
                   ].join(' ')}
@@ -337,7 +331,6 @@ export default function BubbleMenu({
                     ['--pill-color']: menuContentColor,
                     ['--hover-bg']: item.hoverStyles?.bgColor || '#f3f4f6',
                     ['--hover-color']: item.hoverStyles?.textColor || menuContentColor,
-                    background: 'var(--pill-bg)',
                     color: 'var(--pill-color)',
                     minHeight: 'var(--pill-min-h, 160px)',
                     padding: 'clamp(0.75rem, 2vw, 4rem) 0',

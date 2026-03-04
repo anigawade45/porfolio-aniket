@@ -68,14 +68,11 @@ const Contact = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className={`rounded-[32px] p-8 transition-all duration-500 border group
-                                ${theme === 'dark'
-                                    ? 'bg-surface-card border-border-divider hover:border-blue-500/20 hover:shadow-[0_20px_50px_rgba(59,130,246,0.05)]'
-                                    : 'bg-white border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:border-blue-500/30'}`}
+                            className="rounded-[32px] p-8 transition-all duration-500 skeuo-card group"
                         >
                             <div className="flex items-start gap-6">
-                                <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500 shadow-lg shadow-blue-500/0 group-hover:shadow-blue-500/20">
-                                    <Mail size={28} />
+                                <div className="p-4 rounded-2xl skeuo-inner text-blue-500 group-hover:scale-110 transition-all duration-500">
+                                    <Mail size={28} className="skeuo-icon" />
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="text-text-primary font-black text-lg md:text-xl mb-1 transition-colors">Shoot an Email</h3>
@@ -94,14 +91,11 @@ const Contact = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className={`rounded-[32px] p-8 transition-all duration-500 border group
-                                ${theme === 'dark'
-                                    ? 'bg-surface-card border-border-divider hover:border-[#25D366]/20 hover:shadow-[0_20px_50px_rgba(37,211,102,0.05)]'
-                                    : 'bg-white border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:border-[#25D366]/30'}`}
+                            className="rounded-[32px] p-8 transition-all duration-500 skeuo-card group"
                         >
                             <div className="flex items-start gap-6">
-                                <div className="p-4 rounded-2xl bg-[#25D366]/10 text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all duration-500 shadow-lg shadow-[#25D366]/0 group-hover:shadow-[#25D366]/20">
-                                    <MessageCircle size={28} />
+                                <div className="p-4 rounded-2xl skeuo-inner text-[#25D366] group-hover:scale-110 transition-all duration-500">
+                                    <MessageCircle size={28} className="skeuo-icon" />
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="text-text-primary font-black text-lg md:text-xl mb-1 transition-colors">WhatsApp Chat</h3>
@@ -120,14 +114,11 @@ const Contact = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className={`rounded-[32px] p-8 transition-all duration-500 border group
-                                ${theme === 'dark'
-                                    ? 'bg-surface-card border-border-divider hover:border-blue-500/20 hover:shadow-[0_20px_50px_rgba(59,130,246,0.05)]'
-                                    : 'bg-white border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:border-blue-500/30'}`}
+                            className="rounded-[32px] p-8 transition-all duration-500 skeuo-card group"
                         >
                             <div className="flex items-start gap-6">
-                                <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500 shadow-lg shadow-blue-500/0 group-hover:shadow-blue-500/20">
-                                    <Phone size={28} />
+                                <div className="p-4 rounded-2xl skeuo-inner text-blue-500 group-hover:scale-110 transition-all duration-500">
+                                    <Phone size={28} className="skeuo-icon" />
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="text-text-primary font-black text-lg md:text-xl mb-1 transition-colors">Direct Call</h3>
@@ -147,10 +138,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className={`rounded-[32px] p-8 md:p-10 transition-all duration-500 border flex flex-col justify-between h-full
-                            ${theme === 'dark'
-                                ? 'bg-surface-card border-border-divider hover:border-blue-500/20'
-                                : 'bg-white border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:border-blue-500/30'}`}
+                        className="rounded-[32px] p-8 md:p-10 transition-all duration-500 skeuo-card flex flex-col justify-between h-full"
                     >
                         <div className="space-y-8">
                             <div>
@@ -163,14 +151,11 @@ const Contact = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             whileHover={{ scale: 1.02, x: 5 }}
-                                            className={`flex items-center justify-between p-4 rounded-2xl border transition-all duration-500 group
-                                                ${theme === 'dark'
-                                                    ? 'bg-bg-secondary border-border-divider hover:border-blue-500/20'
-                                                    : 'bg-slate-50 border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-lg shadow-sm'}`}
+                                            className="flex items-center justify-between p-4 rounded-2xl skeuo-btn transition-all duration-500 group hover:scale-[1.02] cursor-pointer"
                                         >
                                             <div className="flex items-center gap-4">
                                                 <div
-                                                    className="p-2.5 rounded-xl transition-all duration-500 bg-bg-primary"
+                                                    className="p-2.5 rounded-xl transition-all duration-500 skeuo-inner skeuo-icon"
                                                     style={{ color: social.brandColor }}
                                                 >
                                                     {social.icon}

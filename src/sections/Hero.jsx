@@ -135,8 +135,7 @@ const Hero = () => {
                     <div className="hero-text-block flex flex-col gap-6 lg:gap-8 lg:items-start items-center lg:text-left text-center will-change-transform">
 
                         {/* Badge */}
-                        <div className="hero-badge flex items-center gap-3 bg-bg-secondary/80 border border-border-divider px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-text-secondary backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.1)] relative group overflow-hidden transition-colors">
-                            <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="hero-badge flex items-center gap-3 skeuo-inner px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-text-secondary backdrop-blur-md relative group overflow-hidden transition-all duration-300 hover:scale-105">
                             <span className="relative flex h-2.5 w-2.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500 shadow-[0_0_10px_#3B82F6]"></span>
@@ -201,66 +200,30 @@ const Hero = () => {
 
                         {/* Buttons */}
                         <div className="hero-buttons flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto mt-2">
-                            <Button
+                            <a
                                 href="#projects"
-                                variant="contained"
-                                sx={{
-                                    bgcolor: '#3B82F6',
-                                    color: 'white',
-                                    px: { xs: 4, md: 6 },
-                                    py: { xs: 1.5, md: 2.2 },
-                                    borderRadius: '999px',
-                                    fontWeight: 800,
-                                    textTransform: 'none',
-                                    fontSize: { xs: '0.9rem', md: '1.05rem' },
-                                    boxShadow: '0 10px 30px -5px rgba(59, 130, 246, 0.4)',
-                                    '&:hover': {
-                                        bgcolor: '#60A5FA',
-                                        transform: 'scale(1.1) translateY(-4px)',
-                                        boxShadow: '0 20px 40px -10px rgba(59, 130, 246, 0.5)'
-                                    },
-                                    transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
-                                }}
+                                className="skeuo-accent px-6 py-3 md:px-8 md:py-3.5 rounded-full font-extrabold text-[0.9rem] md:text-[1.05rem] transition-all flex items-center justify-center text-center hover:scale-105 active:scale-95"
                             >
                                 View Projects
-                            </Button>
+                            </a>
 
-                            <Button
+                            <a
                                 href="#contact"
-                                variant="outlined"
-                                sx={{
-                                    borderColor: 'var(--border-divider)',
-                                    color: 'var(--text-primary)',
-                                    px: { xs: 4, md: 6 },
-                                    py: { xs: 1.5, md: 2.2 },
-                                    borderRadius: '999px',
-                                    fontWeight: 700,
-                                    textTransform: 'none',
-                                    fontSize: { xs: '0.9rem', md: '1rem' },
-                                    backdropBlur: '10px',
-                                    '&:hover': {
-                                        borderColor: '#10b981',
-                                        color: '#10b981',
-                                        bgcolor: 'rgba(16, 185, 129, 0.05)',
-                                        transform: 'scale(1.1) translateY(-4px)',
-                                        boxShadow: '0 20px 40px -10px rgba(16, 185, 129, 0.1)'
-                                    },
-                                    transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
-                                }}
+                                className="skeuo-btn px-6 py-3 md:px-8 md:py-3.5 rounded-full font-bold text-text-primary text-[0.9rem] md:text-[1rem] transition-all flex items-center justify-center text-center hover:scale-105 active:scale-95"
                             >
                                 Get in Touch
-                            </Button>
+                            </a>
                         </div>
 
                         {/* Stats */}
-                        <div className="hero-stats flex gap-8 sm:gap-12 mt-6 p-1 bg-bg-secondary/80 rounded-2xl border border-border-divider backdrop-blur-md w-fit px-8 py-4 transition-colors">
+                        <div className="hero-stats flex gap-8 sm:gap-12 mt-6 p-1 skeuo-card rounded-2xl w-fit px-8 py-4 transition-colors">
                             <div>
-                                <h4 className="text-2xl font-black text-text-primary transition-colors">1</h4>
+                                <h4 className="text-2xl font-black text-text-primary transition-colors skeuo-text">1</h4>
                                 <p className="text-[10px] text-text-secondary font-bold tracking-[2px] uppercase opacity-60">Year Exp.</p>
                             </div>
-                            <div className="w-px h-10 bg-border-divider self-center" />
+                            <div className="w-[2px] rounded h-10 skeuo-inner self-center" />
                             <div>
-                                <h4 className="text-2xl font-black text-text-primary transition-colors">5+</h4>
+                                <h4 className="text-2xl font-black text-text-primary transition-colors skeuo-text">5+</h4>
                                 <p className="text-[10px] text-text-secondary font-bold tracking-[2px] uppercase opacity-60">Projects</p>
                             </div>
                         </div>
@@ -279,7 +242,7 @@ const Hero = () => {
                                             key="mobile-image"
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            className="relative aspect-[4/5] w-full rounded-[32px] overflow-hidden border border-border-divider shadow-2xl"
+                                            className="relative aspect-[4/5] w-full rounded-[32px] overflow-hidden skeuo-card"
                                         >
                                             <img
                                                 src={Profile1}
@@ -307,7 +270,7 @@ const Hero = () => {
                                             showTooltip={true}
                                             displayOverlayContent={true}
                                             overlayContent={
-                                                <div className="bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full text-xs font-bold text-white shadow-xl">
+                                                <div className="skeuo-inner px-5 py-2.5 rounded-full text-xs font-bold text-text-primary">
                                                     Open to Opportunities
                                                 </div>
                                             }
@@ -330,7 +293,7 @@ const Hero = () => {
                                                 gridSize={12}
                                                 animationStepDuration={0.4}
                                                 pixelColor="var(--bg-primary)"
-                                                className="w-full h-full rounded-[15px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] dark:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.7)]"
+                                                className="w-full h-full rounded-[15px] skeuo-card"
                                                 aspectRatio="120%"
                                             />
                                         </TiltedCard>

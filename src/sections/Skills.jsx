@@ -94,8 +94,8 @@ const SkillCard = ({ group, isActive, onSelect }) => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`relative group bg-surface-card rounded-[28px] border transition-all duration-500 overflow-hidden
-                ${isActive ? 'border-blue-500/30' : 'border-border-divider hover:border-blue-500/20'}`}
+            className={`relative group skeuo-card rounded-[28px] transition-all duration-500 overflow-hidden z-10
+                ${isActive ? 'scale-[1.02] shadow-[0_0_30px_rgba(59,130,246,0.3)]' : ''}`}
         >
             {/* Background Accent Glow */}
             <div
@@ -108,8 +108,8 @@ const SkillCard = ({ group, isActive, onSelect }) => {
                 {/* Header Container */}
                 <div className="flex items-start justify-between mb-5">
                     <div
-                        className={`p-3 rounded-xl transition-all duration-500 group-hover:scale-110 ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}
-                        style={{ color: group.color, boxShadow: `0 10px 30px ${group.color}15` }}
+                        className="p-3 rounded-xl transition-all duration-500 group-hover:scale-110 skeuo-inner skeuo-icon"
+                        style={{ color: group.color }}
                     >
                         {React.cloneElement(group.icon, { size: 28 })}
                     </div>
@@ -132,12 +132,9 @@ const SkillCard = ({ group, isActive, onSelect }) => {
                                 key={skill.name}
                                 onMouseEnter={() => onSelect(skill, group.category)}
                                 whileHover={{ y: -3, scale: 1.05 }}
-                                className={`flex items-center gap-2.5 px-3.5 py-2 rounded-xl border font-bold text-xs transition-all duration-300 cursor-default group/badge
-                                    ${theme === 'dark'
-                                        ? 'bg-white/5 border-white/5 text-slate-200 hover:border-white/20 hover:bg-white/10'
-                                        : 'bg-slate-50 border-slate-100 text-slate-700 hover:border-blue-500/20 hover:bg-slate-100'}`}
+                                className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl font-bold text-xs transition-all duration-300 cursor-default group/badge skeuo-btn hover:scale-105"
                             >
-                                <span style={{ color: skill.color === '#FFFFFF' ? (theme === 'dark' ? '#FFFFFF' : '#0F172A') : skill.color }}>
+                                <span style={{ color: skill.color === '#FFFFFF' ? (theme === 'dark' ? '#FFFFFF' : '#0F172A') : skill.color }} className="skeuo-icon">
                                     {React.cloneElement(skill.icon, { size: 16 })}
                                 </span>
                                 <span>{skill.name}</span>
@@ -193,17 +190,15 @@ const Skills = () => {
                                     initial={{ opacity: 0, y: 20, scale: 0.9 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                                    className={`backdrop-blur-3xl border rounded-[40px] p-8 md:p-10 flex min-w-[350px] items-center gap-8 relative isolate transition-colors
-                                        ${theme === 'dark' ? 'bg-white/5 border-white/10' : 'bg-white border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.05)]'}`}
+                                    className="skeuo-card rounded-[40px] p-8 md:p-10 flex min-w-[350px] items-center gap-8 relative isolate transition-colors"
                                 >
                                     <div
                                         className="absolute inset-0 blur-[50px] opacity-10 rounded-full -z-10"
                                         style={{ background: inspectedTech.color }}
                                     />
                                     <div
-                                        className={`w-24 h-24 rounded-3xl flex items-center justify-center border relative transition-all
-                                            ${theme === 'dark' ? 'bg-black/40 border-white/10 shadow-2xl' : 'bg-slate-50 border-slate-100'}`}
-                                        style={{ color: inspectedTech.color === '#FFFFFF' ? (theme === 'dark' ? '#FFFFFF' : '#0F172A') : inspectedTech.color, boxShadow: `0 20px 50px ${inspectedTech.color}22` }}
+                                        className="w-24 h-24 rounded-3xl flex items-center justify-center relative transition-all skeuo-inner skeuo-icon"
+                                        style={{ color: inspectedTech.color === '#FFFFFF' ? (theme === 'dark' ? '#FFFFFF' : '#0F172A') : inspectedTech.color }}
                                     >
                                         {React.cloneElement(inspectedTech.icon, { size: 52 })}
                                     </div>

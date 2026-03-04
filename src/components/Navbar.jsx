@@ -78,11 +78,11 @@ const Navbar = () => {
     return (
         <>
             {/* Desktop Navbar */}
-            <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-in-out hidden md:block ${scrolled ? 'bg-bg-primary/80 backdrop-blur-xl border-b border-border-divider h-16' : 'bg-transparent h-[72px]'
+            <nav className={`fixed left-1/2 -translate-x-1/2 w-full max-w-[1400px] z-[1000] transition-all duration-500 ease-in-out hidden md:block rounded-full ${scrolled ? 'top-4 skeuo-card bg-opacity-90 backdrop-blur-xl h-16 w-[calc(100%-2rem)] md:w-[calc(100%-4rem)]' : 'top-0 bg-transparent h-[72px]'
                 }`}>
 
-                <div className="max-w-[1400px] w-full mx-auto px-4 flex justify-between items-center h-full">
-                    <div className="logo">
+                <div className="w-full h-full px-6 flex justify-between items-center">
+                    <div className="logo cursor-pointer hover:scale-105 transition-transform duration-300">
                         <Logo />
                     </div>
 
@@ -91,26 +91,25 @@ const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-[13px] font-semibold text-text-secondary hover:text-text-primary transition-all duration-300 relative uppercase tracking-wider group"
+                                className="text-[12px] font-bold text-text-secondary hover:text-text-primary transition-all duration-300 uppercase tracking-widest px-4 py-2 rounded-full skeuo-btn hover:scale-105 active:scale-95"
                             >
                                 {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
                             </a>
                         ))}
 
                         {/* Theme Toggle Button */}
                         <button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-full bg-bg-secondary border border-border-divider text-text-primary hover:border-blue-500/50 transition-all active:scale-90 group"
+                            className="p-2.5 rounded-full skeuo-btn text-text-primary hover:scale-105 transition-all active:scale-95 group flex items-center justify-center"
                         >
-                            {theme === 'dark' ? <Sun size={18} className="group-hover:rotate-12 transition-transform" /> : <Moon size={18} className="group-hover:-rotate-12 transition-transform" />}
+                            {theme === 'dark' ? <Sun size={18} className="group-hover:rotate-12 transition-transform skeuo-icon" /> : <Moon size={18} className="group-hover:-rotate-12 transition-transform skeuo-icon" />}
                         </button>
 
                         <a
                             href={ResumePDF}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-[#8b5cf6] text-white px-8 py-3 rounded-full font-bold text-[13px] transition-all duration-300 hover:scale-110 hover:bg-[#a78bfa] shadow-[0_4px_12px_rgba(139,92,246,0.3)] hover:shadow-[0_8px_20px_rgba(139,92,246,0.4)] active:scale-95"
+                            className="skeuo-accent px-8 py-3 rounded-full font-bold text-[13px] transition-all duration-300 hover:scale-105 active:scale-95"
                         >
                             Resume
                         </a>
@@ -123,17 +122,17 @@ const Navbar = () => {
                 <div className="fixed top-6 left-6 z-[1100]">
                     <button
                         onClick={toggleTheme}
-                        className="p-3 rounded-full bg-bg-secondary border border-border-divider text-text-primary shadow-xl backdrop-blur-md active:scale-90 transition-transform"
+                        className="p-3 rounded-full skeuo-btn text-text-primary shadow-xl backdrop-blur-md active:scale-90 transition-transform"
                     >
-                        {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                        {theme === 'dark' ? <Sun size={20} className="skeuo-icon" /> : <Moon size={20} className="skeuo-icon" />}
                     </button>
                 </div>
                 <BubbleMenu
                     logo={<Logo />}
                     items={bubbleMenuItems}
                     menuAriaLabel="Toggle navigation"
-                    menuBg={theme === 'dark' ? "#0F172A" : "#FFFFFF"}
-                    menuContentColor={theme === 'dark' ? "#F8FAFC" : "#0F172A"}
+                    menuBg={theme === 'dark' ? "#1f2128" : "#e6e9ee"}
+                    menuContentColor={theme === 'dark' ? "#F8FAFC" : "#1f2937"}
                     useFixedPosition={false}
                     animationEase="back.out(1.5)"
                     animationDuration={0.5}

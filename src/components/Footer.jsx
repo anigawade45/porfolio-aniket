@@ -58,7 +58,7 @@ const Footer = () => {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group p-3 rounded-2xl bg-bg-secondary border border-border-divider hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md"
+                            className="group p-3 rounded-2xl skeuo-btn transition-all duration-300 hover:-translate-y-1 hover:scale-105"
                             title={link.name}
                         >
                             <span

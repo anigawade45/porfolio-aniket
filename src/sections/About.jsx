@@ -48,8 +48,8 @@ const About = () => {
                                             "Improving UI performance and motion design"
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-center gap-3 text-sm md:text-base font-medium">
-                                                <div className="p-0.5 rounded-full bg-blue-500/10">
-                                                    <CheckCircle2 className="text-blue-500 w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                                                <div className="p-0.5 rounded-full skeuo-card">
+                                                    <CheckCircle2 className="text-blue-500 w-4 h-4 md:w-5 md:h-5 flex-shrink-0 skeuo-icon" />
                                                 </div>
                                                 <span className="text-text-secondary transition-colors">{item}</span>
                                             </li>
@@ -61,9 +61,9 @@ const About = () => {
                                     <motion.a
                                         href={ResumePDF}
                                         download="Aniket_Gawade_Resume.pdf"
-                                        whileHover={{ scale: 1.1, y: -5 }}
+                                        whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 bg-[#10b981] hover:bg-[#34d399] text-white font-black rounded-full transition-all duration-300 shadow-xl shadow-[#10b981]/20 w-fit text-sm md:text-base"
+                                        className="flex items-center gap-3 px-8 md:px-10 py-3 md:py-4 skeuo-accent font-black rounded-full transition-all duration-300 w-fit text-sm md:text-base"
                                     >
                                         <Download size={20} />
                                         <span>Download Resume</span>
@@ -80,7 +80,7 @@ const About = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className={`rounded-[32px] p-8 md:p-10 relative group transition-all duration-500 border ${theme === 'dark' ? 'bg-surface-card border-border-divider hover:border-blue-500/30 hover:shadow-[0_0_50px_rgba(59,130,246,0.1)]' : 'bg-white border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:border-blue-500/30'}`}
+                            className="rounded-[32px] p-8 md:p-10 relative group transition-all duration-500 skeuo-card"
                         >
                             {/* Decorative Corner Icon */}
                             <div className="absolute top-8 right-10 text-text-primary/5 group-hover:text-blue-500/20 transition-colors pointer-events-none">
@@ -98,7 +98,7 @@ const About = () => {
                                         { icon: <GraduationCap className="text-blue-500 dark:text-blue-400" />, label: "Experience", value: "1 Year Experience" },
                                     ].map((fact, i) => (
                                         <div key={i} className="flex items-start gap-5">
-                                            <div className={`p-3 rounded-2xl transition-all duration-500 border ${theme === 'dark' ? 'bg-bg-secondary border-border-divider group-hover:bg-blue-500/10' : 'bg-slate-50 border-slate-100 group-hover:bg-blue-50 shadow-sm'}`}>
+                                            <div className="p-3 rounded-2xl transition-all duration-500 skeuo-inner hover:scale-105 cursor-default">
                                                 {fact.icon}
                                             </div>
                                             <div>
@@ -109,7 +109,7 @@ const About = () => {
                                     ))}
                                 </div>
 
-                                <div className={`mt-12 p-6 rounded-2xl border transition-all duration-500 ${theme === 'dark' ? 'bg-bg-secondary/50 border-border-divider group-hover:border-blue-500/10' : 'bg-slate-50/50 border-slate-100 group-hover:bg-blue-50/50'}`}>
+                                <div className="mt-12 p-6 rounded-2xl transition-all duration-500 skeuo-inner">
                                     <p className="text-text-secondary text-xs italic leading-relaxed transition-colors font-medium">
                                         "I believe in building software that isn't just functional, but reliable and scalable from the very first line of code."
                                     </p>

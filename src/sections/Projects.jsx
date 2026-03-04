@@ -185,50 +185,26 @@ const Projects = () => {
                 }}
             >
                 <Fade in={!!selectedProject}>
-                    <Box sx={{
+                    <Box className="skeuo-card" sx={{
                         position: 'relative',
                         width: { xs: '95%', sm: '85%', md: '100%' },
                         maxWidth: '850px',
                         maxHeight: { xs: '90vh', md: 'auto' },
-                        bgcolor: theme === 'dark' ? 'rgba(15, 23, 42, 0.85)' : 'rgba(255, 255, 255, 0.85)',
                         borderRadius: '32px',
                         display: 'flex',
                         flexDirection: 'column',
                         overflow: 'hidden',
                         outline: 'none',
-                        backdropFilter: 'blur(40px) saturate(200%)',
-                        // High-end Custom Border
-                        '&::before': {
-                            content: '""',
-                            position: 'absolute',
-                            inset: 0,
-                            borderRadius: '32px',
-                            padding: '1.5px', // Border thickness
-                            background: theme === 'dark'
-                                ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.3))'
-                                : 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(255, 255, 255, 0.8), rgba(59, 130, 246, 0.2))',
-                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                            WebkitMaskComposite: 'xor',
-                            maskComposite: 'exclude',
-                            zIndex: 2,
-                            pointerEvents: 'none',
-                        },
-                        // Animated Glow Layer
-                        boxShadow: theme === 'dark'
-                            ? '0 0 0 1px rgba(59, 130, 246, 0.1), 0 20px 50px -12px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(59, 130, 246, 0.05)'
-                            : '0 0 0 1px rgba(59, 130, 246, 0.05), 0 20px 50px -12px rgba(59, 130, 246, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.5)',
                     }}>
                         <IconButton
                             onClick={() => setSelectedProject(null)}
+                            className="skeuo-btn"
                             sx={{
                                 position: 'absolute',
                                 right: { xs: 16, md: 32 },
                                 top: { xs: 16, md: 32 },
                                 zIndex: 20,
-                                bgcolor: theme === 'dark' ? 'rgba(15, 23, 42, 0.5)' : 'rgba(255, 255, 255, 0.5)',
-                                backdropFilter: 'blur(10px)',
-                                color: 'var(--text-primary)',
-                                '&:hover': { bgcolor: '#ef4444', color: 'white', transform: 'rotate(90deg)' },
+                                '&:hover': { transform: 'rotate(90deg)' },
                                 transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                             }}
                         >
@@ -250,8 +226,8 @@ const Projects = () => {
                             {/* Content Side */}
                             <div className="p-6 md:p-10 lg:p-12 flex flex-col justify-center relative">
                                 <div className="flex items-center gap-2 text-blue-500 font-black text-[8px] md:text-[9px] tracking-[3px] md:tracking-[4px] uppercase mb-4 md:mb-6 opacity-80">
-                                    <div className="w-6 md:w-8 h-[1px] bg-blue-500" />
-                                    <span>Spotlight</span>
+                                    <div className="w-6 md:w-8 h-[2px] rounded skeuo-inner" />
+                                    <span className="skeuo-text">Spotlight</span>
                                 </div>
 
                                 <h3 className="text-text-primary text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tighter leading-[0.9] mb-4 md:mb-6 transition-colors">
@@ -266,10 +242,7 @@ const Projects = () => {
                                     {selectedProject?.tech.map((tech, index) => (
                                         <div
                                             key={`${selectedProject.title}-${tech.name}-${index}`}
-                                            className={`flex items-center gap-2.5 px-6 py-2.5 rounded-full border transition-all duration-500 group/badge
-                                                ${theme === 'dark'
-                                                    ? 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/20'
-                                                    : 'bg-slate-100/50 border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300 shadow-sm'}`}
+                                            className="flex items-center gap-2.5 px-6 py-2.5 rounded-full skeuo-inner transition-all duration-500 group/badge hover:scale-105"
                                         >
                                             <span
                                                 className="opacity-80 group-hover/badge:opacity-100 group-hover/badge:scale-110 transition-all duration-300"
@@ -285,82 +258,28 @@ const Projects = () => {
                                 </div>
 
                                 <div className="grid grid-cols-[1fr_auto] gap-4">
-                                    <Button
-                                        component="a"
+                                    <a
                                         href={selectedProject?.live}
                                         target="_blank"
-                                        variant="contained"
-                                        fullWidth
-                                        sx={{
-                                            position: 'relative',
-                                            bgcolor: 'transparent',
-                                            backgroundImage: 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
-                                            borderRadius: '20px',
-                                            fontWeight: 900,
-                                            height: { xs: '56px', md: '72px' },
-                                            fontSize: { xs: '0.85rem', md: '1rem' },
-                                            textTransform: 'none',
-                                            letterSpacing: '0.05em',
-                                            overflow: 'hidden',
-                                            boxShadow: theme === 'dark'
-                                                ? '0 10px 20px -5px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)'
-                                                : '0 10px 20px -5px rgba(59, 130, 246, 0.3)',
-                                            '&::before': {
-                                                content: '""',
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: '-100%',
-                                                width: '100%',
-                                                height: '100%',
-                                                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-                                                transition: '0.5s',
-                                            },
-                                            '&:hover': {
-                                                backgroundImage: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
-                                                transform: 'translateY(-3px) scale(1.02)',
-                                                boxShadow: '0 20px 40px -10px rgba(37, 99, 235, 0.5)',
-                                                '&::before': {
-                                                    left: '100%',
-                                                }
-                                            },
-                                            transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)'
-                                        }}
-                                        startIcon={<Globe size={20} className="mr-1" />}
+                                        className="skeuo-accent flex items-center justify-center rounded-[20px] font-black h-[56px] md:h-[72px] text-[0.85rem] md:text-[1rem] tracking-wide hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300"
                                     >
+                                        <Globe size={20} className="mr-2" />
                                         Launch Experience
-                                    </Button>
-                                    <IconButton
-                                        component="a"
+                                    </a>
+                                    <a
                                         href={selectedProject?.github}
                                         target="_blank"
-                                        sx={{
-                                            borderRadius: '20px',
-                                            width: { xs: '56px', md: '72px' },
-                                            height: { xs: '56px', md: '72px' },
-                                            border: '1px solid',
-                                            borderColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-                                            bgcolor: theme === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
-                                            backdropFilter: 'blur(10px)',
-                                            color: 'var(--text-primary)',
-                                            '&:hover': {
-                                                borderColor: '#8b5cf6',
-                                                color: '#8b5cf6',
-                                                transform: 'translateY(-3px) rotate(8deg) scale(1.1)',
-                                                bgcolor: 'rgba(139, 92, 246, 0.08)',
-                                                boxShadow: '0 15px 30px -10px rgba(139, 92, 246, 0.3)'
-                                            },
-                                            transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)'
-                                        }}
+                                        className="skeuo-btn flex items-center justify-center rounded-[20px] w-[56px] md:w-[72px] h-[56px] md:h-[72px] text-text-primary hover:-translate-y-1 hover:rotate-12 hover:scale-110 transition-all duration-300"
                                     >
-                                        <Github size={26} />
-                                    </IconButton>
+                                        <Github size={26} className="skeuo-icon" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </Box>
                 </Fade>
             </Modal>
-        </section>
+        </section >
     );
 };
 
