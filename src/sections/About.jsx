@@ -33,10 +33,10 @@ const About = () => {
 
                             <div className="space-y-6 text-text-secondary text-lg leading-relaxed max-w-2xl transition-colors">
                                 <p>
-                                    I’m an <span className="text-text-primary font-bold border-b border-text-primary/30 pb-0.5 transition-colors">SDE</span> specializing in <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">React</span> and the <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">MERN stack</span>. I enjoy building scalable web applications with clean interfaces and efficient backend systems.
+                                    I’m a <span className="text-text-primary font-bold border-b border-text-primary/30 pb-0.5 transition-colors">Full Stack Developer</span> with hands-on experience building scalable, production-grade web applications using the <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">MERN stack</span> and <span className="text-blue-500 dark:text-blue-400 font-bold border-b border-blue-500/30 dark:border-blue-400/30 pb-0.5 transition-colors">Next.js</span>. I specialize in designing efficient RESTful APIs, implementing secure authentication systems, and optimizing performance to enhance user engagement.
                                 </p>
                                 <p>
-                                    I focus on writing <span className="text-text-primary font-bold transition-colors">maintainable code</span>, designing intuitive user flows, and building features that solve real problems. I value performance, accessibility, and clean architecture as the foundation of any professional product.
+                                    I focus on writing <span className="text-text-primary font-bold transition-colors">clean, maintainable code</span> and taking projects from concept to deployment. I’m passionate about solving real-world problems through precision engineering and intuitive design.
                                 </p>
 
                                 <div className="pt-4">
@@ -93,9 +93,9 @@ const About = () => {
                                 <div className="space-y-8">
                                     {[
                                         { icon: <User className="text-blue-500 dark:text-blue-400" />, label: "Name", value: "Aniket Gawade" },
-                                        { icon: <Briefcase className="text-blue-500 dark:text-blue-400" />, label: "Role", value: "SDE (Software Development Engineer)" },
-                                        { icon: <MapPin className="text-blue-500 dark:text-blue-400" />, label: "Location", value: "Kolhapur, MH, India 🇮🇳" },
-                                        { icon: <GraduationCap className="text-blue-500 dark:text-blue-400" />, label: "Experience", value: "1 Year Experience" },
+                                        { icon: <Briefcase className="text-blue-500 dark:text-blue-400" />, label: "Role", value: "Full Stack Developer" },
+                                        { icon: <MapPin className="text-blue-500 dark:text-blue-400" />, label: "Location", value: "Sawantwadi, MH, India 🇮🇳" },
+                                        { icon: <GraduationCap className="text-blue-500 dark:text-blue-400" />, label: "Education", value: "B.Tech in CS (2023-27)" },
                                     ].map((fact, i) => (
                                         <div key={i} className="flex items-start gap-5">
                                             <div className="p-3 rounded-2xl transition-all duration-500 skeuo-inner hover:scale-105 cursor-default">
@@ -109,10 +109,41 @@ const About = () => {
                                     ))}
                                 </div>
 
-                                <div className="mt-12 p-6 rounded-2xl transition-all duration-500 skeuo-inner">
-                                    <p className="text-text-secondary text-xs italic leading-relaxed transition-colors font-medium">
-                                        "I believe in building software that isn't just functional, but reliable and scalable from the very first line of code."
-                                    </p>
+                                <div className="mt-8 space-y-4">
+                                    <h4 className="text-text-primary font-bold text-xs uppercase tracking-[3px] mb-2 transition-colors">Key Achievements:</h4>
+                                    <div className="space-y-3">
+                                        {[
+                                            "Top 15 nationally at WCE Hackathon 2026",
+                                            "Top 120 teams at Project Morphosis 2026",
+                                            "Top 52 across MH at Codeshetra 2026"
+                                        ].map((achievement, i) => (
+                                            <div key={i} className="flex items-center gap-3 text-xs font-bold text-text-secondary">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                                <span>{achievement}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="mt-8 space-y-4">
+                                    <h4 className="text-text-primary font-bold text-xs uppercase tracking-[3px] mb-2 transition-colors">Certifications:</h4>
+                                    <div className="space-y-3">
+                                        {[
+                                            "Full Stack Development — Apna College (2024)",
+                                            "Cisco Cybersecurity Internship — Cisco (2025)"
+                                        ].map((cert, i) => (
+                                            <div key={i} className="flex items-center gap-3 text-xs font-bold text-text-secondary">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                                <span>{cert}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="mt-8 p-6 rounded-2xl transition-all duration-500 skeuo-inner">
+                                    <h4 className="text-text-primary font-bold text-[10px] uppercase tracking-[3px] mb-2 transition-colors">Latest Experience:</h4>
+                                    <p className="text-text-primary font-bold text-sm">Web Dev Intern @ AI Pathshaala</p>
+                                    <p className="text-text-secondary text-[10px] uppercase tracking-widest mt-1 opacity-60">June 2025 – August 2025</p>
                                 </div>
                             </div>
                         </motion.div>

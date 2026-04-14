@@ -177,7 +177,7 @@ const Contact = () => {
                                         <Globe size={14} className="text-blue-500" />
                                         Location
                                     </div>
-                                    <p className="text-text-primary font-bold text-lg mt-2 transition-colors">Kolhapur, Maharashtra, India 🇮🇳</p>
+                                    <p className="text-text-primary font-bold text-lg mt-2 transition-colors">Sawantwadi, India 🇮🇳</p>
                                 </div>
                                 <div>
                                     <div className="flex items-center gap-3 text-text-secondary font-black text-[10px] uppercase tracking-[4px] transition-colors opacity-50">

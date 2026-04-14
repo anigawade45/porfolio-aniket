@@ -35,13 +35,13 @@ const skillGroups = [
         icon: <Monitor className="w-8 h-8" />,
         color: "#3B82F6",
         skills: [
-            { name: "React", icon: <Atom />, color: "#61DAFB", level: "Expert" },
+            { name: "React.js", icon: <Atom />, color: "#61DAFB", level: "Expert" },
+            { name: "Next.js", icon: <Triangle />, color: "#FFFFFF", level: "Expert" },
+            { name: "TypeScript", icon: <Code2 />, color: "#3178C6", level: "Advanced" },
             { name: "JavaScript", icon: <Code2 />, color: "#F7DF1E", level: "Advanced" },
-            { name: "HTML5", icon: <SquareCode />, color: "#E34F26", level: "Expert" },
-            { name: "Tailwind", icon: <Waves />, color: "#06B6D4", level: "Expert" },
-            { name: "CSS3", icon: <Palette />, color: "#1572B6", level: "Expert" },
-            { name: "Material UI", icon: <Box />, color: "#007FFF", level: "Advanced" },
-            { name: "Next.js", icon: <Triangle />, color: "#FFFFFF", level: "Expert" }
+            { name: "Tailwind CSS", icon: <Waves />, color: "#06B6D4", level: "Expert" },
+            { name: "Zustand", icon: <Box />, color: "#443E38", level: "Advanced" },
+            { name: "Zod", icon: <ShieldCheck />, color: "#244A8F", level: "Advanced" }
         ]
     },
     {
@@ -52,9 +52,10 @@ const skillGroups = [
         skills: [
             { name: "Node.js", icon: <Terminal />, color: "#339933", level: "Expert" },
             { name: "Express.js", icon: <Server />, color: "#FFFFFF", level: "Advanced" },
-            { name: "REST APIs", icon: <Globe />, color: "#00FFC8", level: "Expert" },
+            { name: "RESTful APIs", icon: <Globe />, color: "#00FFC8", level: "Expert" },
             { name: "JWT Auth", icon: <Key />, color: "#FB015B", level: "Advanced" },
-            { name: "Clerk Auth", icon: <ShieldCheck />, color: "#6C47FF", level: "Expert" }
+            { name: "Clerk Auth", icon: <ShieldCheck />, color: "#6C47FF", level: "Expert" },
+            { name: "Redis", icon: <Zap />, color: "#D82C20", level: "Intermediate" }
         ]
     },
     {
@@ -64,27 +65,30 @@ const skillGroups = [
         color: "#F59E0B",
         skills: [
             { name: "MongoDB", icon: <Leaf />, color: "#47A248", level: "Expert" },
-            { name: "PostgreSQL", icon: <Database />, color: "#4169E1", level: "Intermediate" },
-            { name: "Mongoose", icon: <Cpu />, color: "#880000", level: "Advanced" },
-            { name: "MySQL", icon: <Database />, color: "#4479A1", level: "Advanced" }
+            { name: "PostgreSQL", icon: <Database />, color: "#4169E1", level: "Advanced" },
+            { name: "MySQL", icon: <Database />, color: "#4479A1", level: "Advanced" },
+            { name: "Supabase", icon: <Triangle />, color: "#3ECF8E", level: "Advanced" },
+            { name: "SQL", icon: <Code2 />, color: "#336791", level: "Advanced" }
         ]
     },
     {
-        category: "Architecture & Tools",
+        category: "Tools & DevOps",
         description: "Optimizing developer workflow and modern deployment patterns.",
         icon: <Workflow className="w-8 h-8" />,
         color: "#A855F7",
         skills: [
+            { name: "Docker", icon: <Box />, color: "#2496ED", level: "Intermediate" },
+            { name: "Git/GitHub", icon: <Github />, color: "#F05032", level: "Advanced" },
             { name: "Vite", icon: <Zap />, color: "#646CFF", level: "Expert" },
-            { name: "Git", icon: <Github />, color: "#F05032", level: "Advanced" },
-            { name: "MVC Pattern", icon: <Workflow />, color: "#FFD700", level: "Expert" },
             { name: "Postman", icon: <Send />, color: "#FF6C37", level: "Advanced" },
             { name: "Vercel", icon: <Triangle />, color: "#FFFFFF", level: "Expert" },
-            { name: "Render", icon: <Cloud />, color: "#46E3B7", level: "Expert" },
+            { name: "Render", icon: <Cloud />, color: "#46E3B7", level: "Advanced" },
+            { name: "Railway", icon: <Workflow />, color: "#FFFFFF", level: "Advanced" },
             { name: "Jest", icon: <FlaskConical />, color: "#C21325", level: "Advanced" }
         ]
     }
 ];
+
 
 const SkillCard = ({ group, isActive, onSelect }) => {
     const { theme } = useTheme();

@@ -171,6 +171,7 @@ const Hero = () => {
                                     <TextType
                                         className='whitespace-nowrap'
                                         text={[
+                                            'Full Stack Developer',
                                             'SDE',
                                             'UI/UX Designer',
                                             'MERN Expert'

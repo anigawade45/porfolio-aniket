@@ -26,7 +26,14 @@ import {
     ClipboardCheck
 } from 'lucide-react';
 import { useTheme } from '../lib/ThemeContext';
-import CircularGallery from '../components/CircularGallery';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // Import local project images
 import project1 from '../assets/Project1.png';
@@ -129,15 +136,13 @@ const Projects = () => {
     const { theme } = useTheme();
     const [selectedProject, setSelectedProject] = useState(null);
 
-    const handleProjectClick = (index) => {
-        const originalIndex = index % projects.length;
-        setSelectedProject(projects[originalIndex]);
-    };
-
     return (
-        <section id="projects" className="py-24 relative overflow-hidden h-[900px] flex flex-col justify-center">
-            <Container maxWidth="xl" className="pointer-events-none absolute top-16 left-1/2 -translate-x-1/2 z-20" sx={{ px: { xs: 4, sm: 6, md: 10 } }}>
-                <div className="text-center">
+        <section id="projects" className="py-24 relative overflow-hidden h-auto min-h-[850px] flex flex-col justify-center transition-colors">
+            {/* Background ambient glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/[0.03] blur-[150px] rounded-full pointer-events-none" />
+
+            <Container maxWidth="xl" className="relative z-20 mb-16" sx={{ px: { xs: 4, sm: 6, md: 10 } }}>
+                <div className="text-center lg:text-left">
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -150,23 +155,92 @@ const Projects = () => {
                             Featured <span className="text-gradient">Works.</span>
                         </h2>
                         <p className="text-text-secondary text-sm font-bold uppercase tracking-widest opacity-40">
-                            Click to reveal project details
+                            Swipe to explore my latest creations
                         </p>
                     </motion.div>
                 </div>
             </Container>
 
-            {/* Immersive 3D Gallery */}
-            <div className="w-full h-full relative z-10">
-                <CircularGallery
-                    items={projects}
-                    bend={3}
-                    textColor={theme === 'dark' ? '#F8FAFC' : '#0F172A'}
-                    font="black 24px 'Plus Jakarta Sans'"
-                    borderRadius={0.08}
-                    onItemClick={handleProjectClick}
-                />
+            {/* Premium Swiper Slider */}
+            <div className="max-w-[1000px] mx-auto relative z-10 px-4 project-swiper-container overflow-visible">
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    slidesPerView={1.5}
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 }
+                    }}
+                    loop={true}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    }}
+                    coverflowEffect={{
+                        rotate: 35,
+                        stretch: 10,
+                        depth: 200,
+                        modifier: 1,
+                        slideShadows: false,
+                    }}
+                    pagination={{ clickable: true }}
+                    modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                    className="w-full py-8 md:py-12"
+                    loopedSlides={4}
+                >
+                    {[...projects, ...projects].map((project, index) => (
+                        <SwiperSlide key={`${project.title}-${index}`}>
+                            <motion.div
+                                onClick={() => setSelectedProject(project)}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="skeuo-card rounded-[32px] overflow-hidden cursor-pointer group transition-all duration-500"
+                            >
+                                <div className="aspect-[16/9] relative overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    {/* Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                                    {/* Content on slide */}
+                                    <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 text-white">
+                                        <div className="flex items-center gap-3 mb-2 opacity-80">
+                                            <span className="text-[10px] font-black uppercase tracking-[4px]">Project 0{index + 1}</span>
+                                            <div className="h-px w-8 bg-white/30" />
+                                        </div>
+                                        <h3 className="text-2xl md:text-4xl font-black tracking-tighter leading-none mb-4 group-hover:text-blue-400 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tech.slice(0, 4).map((t, i) => (
+                                                <span key={i} className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/5">
+                                                    {t.name}
+                                                </span>
+                                            ))}
+                                            {project.tech.length > 4 && (
+                                                <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/5">
+                                                    +{project.tech.length - 4}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Play icon/Indicator */}
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-50 group-hover:scale-100">
+                                        <Globe size={28} className="text-white" />
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
+
 
 
 
